@@ -1,0 +1,272 @@
+/* Light Mode */
+:root {
+  --sidebar-bg: #f8f9fa;
+  --sidebar-text: #000;
+  --sidebar-hover: #2b4eff;
+  --main-bg: #e3f3ff;
+  --card-bg: #fff;
+  --text-primary: #333;
+  --text-secondary: #666;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-hover: rgba(0, 0, 0, 0.15);
+  --border-active: #2b4eff;
+  --highlight-bg: rgba(43, 78, 255, 0.1);
+  --read-bg: #f5f5f5;
+  --btn-bg: #2b4eff;
+  --btn-hover: #1a38b8;
+  --delete-color: #d9534f;
+}
+
+/* Dark Mode */
+.dark {
+  --sidebar-bg: #1e1e1e;
+  --sidebar-text: #f5f5f5;
+  --sidebar-hover: #6aa6ff;
+  --main-bg: #121212;
+  --card-bg: #2a2a2a;
+  --text-primary: #f5f5f5;
+  --text-secondary: #aaa;
+  --shadow-color: rgba(255, 255, 255, 0.1);
+  --shadow-hover: rgba(255, 255, 255, 0.2);
+  --border-active: #6aa6ff;
+  --highlight-bg: rgba(106, 166, 255, 0.15);
+  --read-bg: #1a1a1a;
+  --btn-bg: #6aa6ff;
+  --btn-hover: #4a90e2;
+  --delete-color: #ff6b6b;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer; 
+  transition: opacity 0.2s ease;
+}
+
+/* Main Content Layout */
+
+.history-page .main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: var(--main-bg);
+  color: var(--text-primary);
+  font-family: Arial, sans-serif;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* History Container */
+.history-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Search Bar & Clear Button */
+.search-bar-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: var(--card-bg);
+  border-radius: 25px;
+  padding: 8px 12px;
+  gap: 8px;
+  box-shadow: 0 2px 6px var(--shadow-color);
+  width: 290px;
+}
+
+.search-bar input {
+  border: none;
+  flex: 1;
+  font-size: 14px;
+  outline: none;
+  background: transparent;
+  color: var(--text-primary);
+}
+
+.search-icon,
+.filter-icon {
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.clear-btn {
+  background: #2b4eff;
+  color: white;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.clear-btn:hover {
+  background: var(--btn-hover);
+}
+
+/* Filter Dropdown */
+.filter-dropdown {
+  position: absolute;
+  top: 21%;
+  left: 17%;
+  margin-top: 8px;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  padding: 15px;
+  border-radius: 12px;
+  width: 250px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px var(--shadow-hover);
+  z-index: 100;
+}
+
+.filter-dropdown h4 {
+  margin: 10px 0 5px;
+  font-size: 14px;
+}
+
+.filter-dropdown .all-button {
+  margin-top: 15px;
+  width: 100%;
+  background: var(--btn-bg);
+  color: #fff;
+  text-align: center;
+  padding: 8px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.filter-dropdown .all-button:hover {
+  background: var(--btn-hover);
+}
+
+.filter-dropdown .all-button.active {
+  background: #2b4eff;
+  color: #fff;
+}
+
+/* Letter Grid*/
+.letter-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.letter-button {
+  background: var(--card-bg);
+  border: 1px solid var(--text-secondary);
+  border-radius: 6px;
+  padding: 6px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+.letter-button:hover {
+  background: var(--btn-bg);
+  color: #fff;
+}
+
+.letter-button.active {
+  background: var(--btn-bg);
+  color: #fff;
+  font-weight: bold;
+}
+
+/* History Cards*/
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.history-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--card-bg);
+  padding: 26px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px var(--shadow-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  cursor: pointer;
+}
+
+.history-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px var(--shadow-hover);
+}
+
+/* Highlight (active/selected) */
+.history-card.active {
+  background: var(--highlight-bg);
+  border: 1px solid var(--border-active);
+  font-weight: bold;
+}
+
+/* Text inside cards */
+.history-card .letter {
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--text-primary);
+}
+
+.history-card .date {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* Delete Icon */
+.delete-icon {
+  color: var(--delete-color);
+  cursor: pointer;
+  display: none;
+  font-size: 16px;
+}
+
+.history-card:hover .delete-icon {
+  display: block;
+}
+
+/* Red dot for notification */
+.bell-dot {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 10px;
+  height: 10px;
+  background: red;
+  border-radius: 50%;
+}
+
+/* No History Text */
+.no-history-text {
+  color: var(--text-secondary);
+  text-align: center;
+  font-size: 16px; 
+  margin-top: 20px;
+  font-weight:bold; 
+}

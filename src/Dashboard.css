@@ -1,0 +1,370 @@
+/* Light Mode */
+:root {
+  --sidebar-bg: #f8f9fa;
+  --sidebar-text: #000;
+  --sidebar-hover: #2b4eff;
+  --main-bg: #e3f3ff;
+  --card-bg: #fff;
+  --text-primary: #333;
+  --text-secondary: #666;
+}
+
+/* Dark Mode */
+.dark {
+  --sidebar-bg: #1e1e1e;
+  --sidebar-text: #f5f5f5;
+  --sidebar-hover: #6aa6ff;
+  --main-bg: #121212;
+  --card-bg: #2a2a2a;
+  --text-primary: #f5f5f5;
+  --text-secondary: #aaa;
+}
+
+/* Dashboard Layout */
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  font-family: Arial, sans-serif;
+  background-color: var(--main-bg);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer; 
+  transition: opacity 0.2s ease;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background-color: var(--sidebar-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+.sidebar-logo {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.sidebar-logo img {
+  width: 140px;
+  height: auto;
+  display: inline-block;
+}
+
+.divider {
+  height: 1px;
+  background-color: #ddd;
+  margin: 15px 0;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sidebar-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--sidebar-text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sidebar-menu-item:hover {
+  color: var(--sidebar-hover);
+}
+
+.sidebar-menu-item.active {
+  color: var(--sidebar-hover);
+  font-weight: bold;
+  background-color: rgba(43, 78, 255, 0.1);
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+.sidebar-footer {
+  font-size: 12px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow-y: auto; 
+  min-height: 0; 
+}
+
+
+/* Header */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2b4eff;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.header-left h1 {
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-info img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+
+/* Camera Section */
+.camera-section {
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.camera-box {
+  width: 65%;
+  height: 380px;
+  background: repeating-linear-gradient(45deg, #f0f0f0, #f0f0f0 10px, #e0e0e0 10px, #e0e0e0 20px);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.camera-icon {
+  font-size: 60px;
+  color: #2a2a2a;
+}
+
+.camera-tips {
+  width: 30%;
+  text-align: center;
+}
+
+.camera-tips h3 {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.camera-tips p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 15px;
+}
+
+.start-btn {
+  background-color: #2b4eff;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Recent Translations */
+.recent-section {
+  margin-top: 15px;
+}
+
+.recent-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.recent-header h2 {
+  font-size: 18px;
+  color: var(--text-primary);
+}
+
+.recent-header a {
+  color: #2b4eff;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+/* Recent Cards */
+.recent-card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px var(--shadow-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  cursor: pointer;
+}
+
+.recent-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px var(--shadow-hover);
+}
+
+.recent-card img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.recent-card:hover img {
+  transform: scale(1.05);
+}
+
+.recent-card-info {
+  flex: 1;
+}
+
+.recent-card-info h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: var(--text-primary);
+}
+
+.recent-card-info p {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* Highlight (active/selected) */
+.recent-card.active {
+  background: var(--highlight-bg);
+  border: 1px solid var(--border-active);
+  font-weight: bold;
+}
+
+/* For View all */
+.view-all-link {
+  color: #333333;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 5px;
+  margin-right: 20px;
+  cursor: pointer;
+  color: var(--text-primary);
+  transition: color 0.2s ease;
+}
+
+.view-all-link:hover {
+  color: #1a34cc;
+  text-decoration: underline;
+}
+
+/* Notification Bell */
+.notification-bell {
+  cursor: pointer;
+  position: relative;
+  font-size: 20px;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.notification-bell:hover {
+  color: #37353E; 
+  transform: scale(1.1);
+}
+
+.notification-bell.not-active {
+  color: #333333;
+}
+
+.notification-bell.not-active:hover {
+  color: #37353E; 
+  transform: scale(1.1);
+}
+
+.notification-bell.active {
+  color: #fff; 
+}
+
+.notification-bell.active:hover {
+  color: #37353E; 
+  transform: scale(1.1);
+}
+
+/* Red dot for notification */
+.bell-dot {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 8px;
+  height: 8px;
+  background: red;
+  border-radius: 50%;
+}
+
+/* Scrollbar style */
+.recent-list {
+  max-height: 250px;  
+  overflow-y: auto;
+  padding-right: 5px;
+  text-align: center;
+  font-weight: bold;
+  color: var(--text-secondary);
+}
+
+.recent-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.recent-list::-webkit-scrollbar-track {
+  background: var(--card-bg); 
+  border-radius: 10px;
+}
+
+.recent-list::-webkit-scrollbar-thumb {
+  background: var(--text-secondary); 
+  border-radius: 10px;
+}
+
+.recent-list::-webkit-scrollbar-thumb:hover {
+  background: var(--text-primary); 
+}
+

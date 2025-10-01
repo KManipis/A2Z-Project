@@ -1,0 +1,259 @@
+/* Light Mode */
+:root {
+  --sidebar-bg: #f8f9fa;
+  --sidebar-text: #000;
+  --sidebar-hover: #2b4eff;
+  --main-bg: #e3f3ff;
+  --card-bg: #fff;
+  --text-primary: #333;
+  --text-secondary: #666;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-hover: rgba(0, 0, 0, 0.15);
+  --border-active: #2b4eff;
+  --highlight-bg: rgba(43, 78, 255, 0.1);
+  --read-bg: #f5f5f5;
+  --delete-color: #e74c3c; 
+}
+
+/* Dark Mode */
+.dark {
+  --sidebar-bg: #1e1e1e;
+  --sidebar-text: #f5f5f5;
+  --sidebar-hover: #6aa6ff;
+  --main-bg: #121212;
+  --card-bg: #2a2a2a;
+  --text-primary: #f5f5f5;
+  --text-secondary: #aaa;
+  --shadow-color: rgba(255, 255, 255, 0.1);
+  --shadow-hover: rgba(255, 255, 255, 0.2);
+  --border-active: #6aa6ff;
+  --highlight-bg: rgba(106, 166, 255, 0.15);
+  --read-bg: #1a1a1a;
+  --delete-color: #ff7675;
+}
+
+/* Notification Page Wrapper */
+.notification-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* header style */
+.notification-page .dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2b4eff;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.notification-page .header-left h1 {
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+.notification-page .header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.notification-page .user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.notification-page .user-info img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+
+.notification-container {
+  padding: 20px;
+}
+
+.notification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.notification-card {
+  background: var(--card-bg);
+  color: var(--text-primary);
+  padding: 25px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 3px 6px var(--shadow-color);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  cursor: pointer;
+}
+
+.notification-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px var(--shadow-hover);
+}
+
+.notification-card.active {
+  background: var(--highlight-bg);
+  border: 1px solid var(--border-active);
+  font-weight: bold;
+}
+
+/* Unread state */
+.notification-card.unread {
+  font-weight: bold;
+}
+
+.notification-card .dot {
+  width: 8px;
+  height: 8px;
+  background: red;
+  border-radius: 50%;
+  position: absolute;
+  left: 5px;
+  top: 20%;
+  transform: translateY(-50%);
+}
+
+.notification-card .delete-btn {
+  color: var( --delete-color);
+  cursor: pointer;
+  margin-left: 10px;
+  display: none;
+  color: var(--delete-color);
+}
+
+.notification-card:hover .delete-btn {
+  display: block;
+}
+
+/* Empty state */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.empty-state img {
+  width: 200px;
+  margin-bottom: 0px;
+  margin-left: 20px;
+}
+
+.empty-state p {
+  font-size: 16px;
+  margin-top: 5px;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+/* Popup Overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+/* Popup Card */
+.popup-card {
+  background: var(--card-bg);
+  color: var(--text-primary);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+  width: 320px;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.popup-card h3 {
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.popup-card p {
+  margin: 8px 0;
+  color: var(--text-secondary);
+}
+
+.close-btn {
+  margin-top: 15px;
+  background: #2b4eff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.close-btn:hover {
+  background: #1f3bcc;
+}
+
+/* Read state */
+.notification-card.read {
+  color: var(--text-secondary);
+  font-weight: normal;
+  background: var(--read-bg);
+}
+
+/* Mark all as read*/
+.mark-all-container {
+  margin-bottom: 15px;
+  text-align: right;
+}
+
+.mark-all-text {
+  font-size: 14px;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-weight: 300;
+  transition: color 0.2s ease;
+}
+
+.mark-all-text:hover {
+  color: #1f3bcc;
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Notification bell*/
+.notification-bell {
+  position: relative;
+}
+
+.bell-dot {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 12px;
+  height: 12px;
+  background: red;
+  border-radius: 50%;
+  border: 2px solid white; 
+}
+
+
