@@ -1,4 +1,6 @@
 import "./Login.css";
+import { auth, provider } from "./Firebase";
+import { signInWithPopup } from "firebase/auth";
 import A2Zlogo from "./assets/A2Zlogo.jpeg";
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
@@ -87,10 +89,39 @@ function Login() {
 
             <div className="login-divider">━━━━━━━ or ━━━━━━━</div>
 
-            <button type="button" className="login-google-btn">
-              <FcGoogle size={20} style={{ marginRight: "8px" }} />
-              Sign in with Google
-            </button>
+              {/* GOOGLE LOGIN BUTTON */}
+<button
+  type="button"
+  className="login-google-btn"
+  onClick={async () => {
+    try {
+      // Open Google sign-in popup
+      const result = await signInWithPopup(auth, provider);
+
+      // The signed-in user info
+      const user = result.user;
+
+      // You can now use user.displayName, user.email, etc.
+      console.log("Google user:", user);
+      alert(`Welcome ${user.displayName}!`);
+
+      // TODO: Redirect to dashboard or store user info in state
+      // Example: navigate("/dashboard");
+    } catch (error) {
+      // Handle errors here
+      console.error("Google login error:", error);
+
+      // Common errors:
+      // - popup blocked
+      // - unauthorized domain
+      // - network issues
+      alert("Google login failed. Check console for details.");
+    }
+  }}
+>
+  <FcGoogle size={20} style={{ marginRight: "8px" }} />
+  Sign in with Google
+</button>
           </form>
 
           <a href="#" className="login-forgot-link">Forgot password?</a>
